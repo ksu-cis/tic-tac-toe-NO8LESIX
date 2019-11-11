@@ -1,7 +1,15 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Game ";
 }
+<h1>Tic-Tac-Toe</h1>
 
-<h1>Hello World</h1>
+<div id="grid">
+@for (int i = 0; i < 9; i++)
+{
+    <div id="square-@i" class="square"/>
+}
+<</div>>
+
+<p> </p>
