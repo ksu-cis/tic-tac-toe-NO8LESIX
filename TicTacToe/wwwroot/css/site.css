@@ -9,11 +9,12 @@ body {
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    /*padding-left: 15px;
-    padding-right: 15px;*/
-    width: 302px;
+    padding-left: 15px;
+    padding-right: 15px;
+    /*For Tic-tac-toe*/
+    /*width: 302px;
     margin: 0 auto;
-    padding: 0;
+    padding: 0;*/
 }
 
 .square {
@@ -36,11 +37,44 @@ body {
     height: 100%
 }
 
+
+/*Checkers Game styling*/
+#checkers-board {
+    width: 400px;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.red {
+    background-color: red;
+}
+
+.black {
+    background-color: black;
+}
+
 .row {
     display: flex;
     flex-direction: row;
-    height:30%;
+    height: 30%;
 }
+
+.checker {
+    margin: 0px;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    border: 5px solid grey;
+}
+/*End Styling*/
+
+
+
+
+
+
+
 
 .board > .row:nth-child(2) {
     border-top: 1px solid black;
@@ -63,5 +97,4 @@ form {
     margin: 0 auto;
     padding: 0;
     overflow: hidden;
-
 }

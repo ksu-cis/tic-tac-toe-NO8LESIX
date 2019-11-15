@@ -1,7 +1,8 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
-//server code
+//server code for Tic-Tac-Toe
+/*
 var form = document.getElementById("board")
 var cells = document.getElementsByClassName("square");
 for (var i = 0; i < cells.length; i++) {
@@ -9,11 +10,8 @@ for (var i = 0; i < cells.length; i++) {
         event.
     });
 }
-
-
-// Write your Javascript code.
 var turn = "X";
-
+//code for Tic - Tac - Toe
 function setTurn() {
     var turnElement = document.getElementById(turn);
     turnElement.innerText = "Player " + turn + "Turn";
@@ -77,3 +75,44 @@ for (var i = 0; i < cells; i++) {
 }
 
 setTurn();
+*/
+
+
+
+//code for checkers
+var dragging;
+
+var squares = document.getElementsByClassName("square");
+for (var i = 0; i < squares; i++) {
+    squares[i].addEventListener("dragenter", onDragEnter);
+    squares[i].addEventListener("drop", onDrop);
+    squares[i].addEventListener("dragstart", onDragEnd);
+    squares[i].addEventListener("dragleave", onDragLeave);
+}
+
+function onDragEnter(event) {
+    if (event.target.classList.length > 0) return;
+    if (event.target.classList.contains("checker")) return;
+    if (event.target.classList.contains("red")) return;
+
+    event.preventDefault();
+    event.target.style.backgroundColor = "yellow";
+}
+
+function onDragStart(event) {
+    dragging = {
+        x: event.target.data - x,
+        y: event.target.data - y
+    }    
+}
+function onDragEnd(event) {
+    event.log(dragging);
+}
+
+function onDrop(event) {
+    console.log(event);
+}
+function onDragLeave(event) {
+    event.target.style.backgroundColor = null;
+
+}

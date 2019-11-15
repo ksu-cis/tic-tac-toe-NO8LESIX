@@ -1,0 +1,34 @@
+﻿@page
+@model TicTacToe.Pages.CheckersModel
+@{
+    ViewData["Title"] = "Checkers";
+}
+
+<h2>Checkers</h2>
+<div id="checkers-board">
+    @for (var y = 0; y < 8; y++)
+    {
+        @for (var i = 0; i < 8; i++)
+        {
+            <div class="square @((y+i) % 2 == 0 ? " black": "red")">
+                @if (Model.CheckersGame.Board[i, y] != null)
+                {
+                    <div class="checker @Model.CheckersGame.Board[i,y].Color"
+                         draggable="true"
+                         data-x="@i" data-y="@y"></div>
+                }
+            </div>
+        }
+    }
+</div>
+
+<form method="post">
+    <input type="text" name="checkerX"/>
+    <input type="text" name="checkerY"/>
+    <input type="text" name="squareX"/>
+    <input type="text" name="squareY"/>
+    <textarea name="state"> @Model.CheckersGame.Board</textarea>;
+
+    <input type="button" value="Make a Move!"/>
+
+</form>
